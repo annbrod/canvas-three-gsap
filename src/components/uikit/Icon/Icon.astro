@@ -1,0 +1,12 @@
+---
+import './style.scss'
+export interface Props {
+    mod?: string;
+    name?: string;
+}
+const { mod, name } = Astro.props;
+---
+
+<i class={`icon icon--${mod} icon-${name}`}></i>
+
+<script src="./script.js"></script>

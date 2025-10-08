@@ -1,0 +1,18 @@
+---
+import './style.scss'
+
+export interface Props {
+    mod?: string;
+    name?: string;
+}
+
+const { id, name, count, text, checked, disabled, required, class: className } = Astro.props
+---
+
+<div class:list={["checkbox", `${className}` ]}>
+    <input class="checkbox__input" type="checkbox" id={id} name={name} autocomplete="off" checked={ checked } disabled={ disabled } required={required}>
+    <label class="checkbox__name" for={id}>
+        <span class="checkbox__count">{count}</span>
+        <span class="checkbox__text">{text}</span>
+    </label>
+</div>

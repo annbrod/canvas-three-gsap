@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<main>
+            <div>
+        <i class="icon icon-arrow" /> - 
+        <span class="icon-text">&lt;icon class="icon icon-arrow" /&gt;</span>
+        <span class="tooltip">Скопировано!</span>
+    </div>
+    <div>
+        <i class="icon icon-burger" /> - 
+        <span class="icon-text">&lt;icon class="icon icon-burger" /&gt;</span>
+        <span class="tooltip">Скопировано!</span>
+    </div>
+    <div>
+        <i class="icon icon-glass" /> - 
+        <span class="icon-text">&lt;icon class="icon icon-glass" /&gt;</span>
+        <span class="tooltip">Скопировано!</span>
+    </div>
+    <div>
+        <i class="icon icon-star" /> - 
+        <span class="icon-text">&lt;icon class="icon icon-star" /&gt;</span>
+        <span class="tooltip">Скопировано!</span>
+    </div>
+    </main>
+</body>  
+</html>
+
+
+<script is:inline>
+    class IconActionController {
+        get copyTriggerElements () {
+            return document.querySelectorAll('div')
+        }
+
+
+        addHandlerCopyAction () {
+            const self = this
+            this.copyTriggerElements.forEach(el => {
+                el.addEventListener('click', function () {
+                    self.removeAllCopyClass()
+                    const spanElement = this.querySelector('.icon-text')
+                    this.classList.add('copy')
+                    const content = spanElement.textContent
+                    navigator.clipboard.writeText(content)
+                    setTimeout(() => {
+                        this.classList.remove('copy')
+                    }, 1000)
+                })
+            })
+        }
+
+        removeAllCopyClass () {
+            this.copyTriggerElements.forEach(el => {
+                el.classList.remove('copy')
+            })
+        }
+
+        init () {
+            this.addHandlerCopyAction()
+        }
+    }
+
+    class IconsPageController {
+        static init () {
+            const iconActionController = new IconActionController()
+            iconActionController.init()
+        }
+    }
+
+    IconsPageController.init()
+</script>
+
+<style lang="scss">
+    @import url('../../../public/fonts/webfont-icons/icons.css');
+
+    div {
+        padding: 15px 0;
+        font-size: 20px;
+        cursor: pointer;
+        margin-bottom: 10px;
+
+        &:hover {
+            background-color: #8e8d8d2b;
+        }
+
+        .tooltip {
+            margin-left: 30px;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        &.copy .tooltip {
+            opacity: 1;
+        }
+    }
+</style>

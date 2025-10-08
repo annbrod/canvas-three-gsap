@@ -1,0 +1,21 @@
+---
+import './style.scss';
+
+interface Props {
+    data: string;
+    labelledby: string;
+}
+const {
+    data,
+    labelledby
+} = Astro.props;
+---
+
+<dialog class="popup js-popup" role="dialog" body-scroll-lock-ignore="true" aria-labelledby={labelledby} data-popup={data}>
+    <div class="popup__content js-popup-content">
+        <button class="popup__close-btn js-close-popup" aria-label="Закрыть попап"></button>
+        <slot />
+    </div>
+</dialog>
+
+<script src="./script.js"></script>

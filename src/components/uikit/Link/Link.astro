@@ -1,0 +1,46 @@
+---
+import './style.scss';
+
+interface Props {
+    href: string;
+    size?: "md" | "lg";
+    block?: boolean;
+    style?: "outline" | "primary" | "inverted" | "muted";
+    class?: string;
+    [x: string]: any;
+}
+
+const {
+    href,
+    block,
+    size = "lg",
+    style = "primary",
+    class: className,
+    ...rest
+} = Astro.props;
+
+const sizes = {
+    lg: "px-5 py-2.5",
+    md: "px-4 py-2",
+};
+
+const styles = {
+    outline: "bg-white",
+    primary: "bg-black",
+    inverted: "bg-white",
+    muted: "bg-gray-100",
+};
+  ---
+  
+<a
+    href={href}
+    {...rest}
+    class:list={[
+        "link",
+        block && "w-full",
+        sizes[size],
+        styles[style],
+        className,
+    ]}
+    ><slot />
+</a>

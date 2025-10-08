@@ -1,0 +1,17 @@
+---
+import {{layoutName}} from '../layouts/{{layout}}';
+const pageConfig = {
+    title: '{{title}}',
+    description: '{{description}}',
+    keywords: '{{keywords}}',
+    image: '{{image}}'
+};
+---
+<{{layoutName}}
+    title={pageConfig.title}
+    pageDescription={pageConfig.description}
+    pageKeywords={pageConfig.keywords}
+    pageImage={pageConfig.image}
+    >
+        <h1>Page {{title}}</h1>
+</{{layoutName}}>

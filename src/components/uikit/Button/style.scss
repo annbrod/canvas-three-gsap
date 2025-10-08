@@ -1,0 +1,191 @@
+@import '../../../assets/styles/global.scss';
+.button {
+    display: inline-flex;
+    align-items: center;
+    background-color: transparent;
+    text-decoration: none;
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+    cursor: pointer;
+    font-family: $font-base-bold;
+    font-size: 14px;
+    line-height: 42px;
+    padding: 0px 32px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+    border: 1px solid $cl-portland-orange;
+    color: $cl-white;
+    background-color: $cl-portland-orange;
+    transition: opacity .3s ease, color .3s ease, background-color .3s ease, border-color .3s ease;
+
+    &--block {
+        display: block;
+    }
+
+    &:disabled {
+        opacity: .5;
+        pointer-events: none;
+    }
+
+    @media (hover: none), (pointer: coarse) {
+        &:active {
+            background-color: $cl-electric-orange;
+        }
+    }
+
+    @media not all and (pointer: coarse) {
+        &:hover {
+            background-color: $cl-electric-orange;
+        }
+    }
+
+    &--reversed,
+    &--tab-filter.active {
+        background-color: transparent;
+        color: $cl-portland-orange;
+        border: 1px solid $cl-portland-orange;
+
+        @media (hover: none), (pointer: coarse) {
+            &:active {
+                background-color: $cl-portland-orange;
+                color: $cl-white;
+            }
+        }
+    
+        @media not all and (pointer: coarse) {
+            &:hover {
+                background-color: $cl-portland-orange;
+                color: $cl-white;
+            }
+        }
+   
+    }
+
+    &--tab-filter.active {
+        pointer-events: none;
+    }
+
+    &--tab-filter {
+        white-space: nowrap;
+        background-color: transparent;
+        border-color: transparent;
+        color: $cl-manatee;
+
+        @media (hover: none), (pointer: coarse) {
+            &:active {
+                color: $cl-white;
+            }
+        }
+    
+        @media not all and (pointer: coarse) {
+            &:hover {
+                color: $cl-white;
+            }
+        }
+    }
+
+    &--alternative {
+        background-color: $cl-cultured;
+        color: $cl-outer-space;
+        border-color: $cl-cultured;
+
+        @media (hover: none), (pointer: coarse) {
+            &:active {
+                background-color: $cl-gainsboro;
+                border-color: $cl-gainsboro;
+                color: $cl-outer-space;
+            }
+        }
+
+        @media not all and (pointer: coarse) {
+            &:hover {
+                background-color: $cl-gainsboro;
+                border-color: $cl-gainsboro;
+                color: $cl-outer-space;
+            }
+        }
+    }
+
+    &--dark {
+        background-color: $cl-outer-space;
+        color: $cl-white;
+        border-color: $cl-outer-space;
+
+        &.button--outline {
+            color: $cl-outer-space;
+            border-color: $cl-outer-space;
+        }
+
+        @media (hover: none), (pointer: coarse) {
+            &:active {
+                background-color: $cl-dark-gunmetal;
+                border-color: $cl-dark-gunmetal;
+                color: $cl-white;
+            }
+        }
+
+        @media not all and (pointer: coarse) {
+            &:hover {
+                background-color: $cl-dark-gunmetal;
+                border-color: $cl-dark-gunmetal;
+                color: $cl-white;
+            }
+        }
+    }
+
+    &--light {
+        background-color: $cl-white;
+        color: $cl-outer-space;
+        border-color: $cl-white;
+
+        &.button--outline {
+            color: $cl-white;
+            border-color: $cl-white;
+        }
+
+        @media (hover: none), (pointer: coarse) {
+            &:active {
+                background-color: $cl-white;
+                color: $cl-outer-space;
+                border-color: $cl-white;
+            }
+        }
+
+        @media not all and (pointer: coarse) {
+            &:hover {
+                background-color: $cl-white;
+                color: $cl-outer-space;
+                border-color: $cl-white;
+            }
+        }
+    }
+
+    .icon--arrow {
+        margin-left: 8px;
+        font-size: 16px;
+    }
+
+    &--large {
+        font-size: 16px;
+        line-height: 50px;
+        padding: 0 40px;
+
+        .icon--arrow {
+            font-size: 24px;
+        }
+    }
+
+    &--small {
+        font-size: 12px;
+        line-height: 34px;
+    }
+
+    &--outline {
+        background-color: transparent;
+    }
+
+
+}

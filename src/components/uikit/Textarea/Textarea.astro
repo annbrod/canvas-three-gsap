@@ -1,0 +1,11 @@
+---
+import './style.scss'
+
+const { className, id, name, placeholder, required, jsClass } = Astro.props;
+---
+
+<div class:list={["textarea", className]}>
+    <textarea class:list={["textarea__textarea-field", jsClass]} id={id} name={name} placeholder={placeholder} required={required}></textarea>
+</div>
+
+<script src="./script.js"></script>

@@ -1,0 +1,27 @@
+@import '../../../assets/styles/global.scss';
+
+.tab {
+
+    &__head {
+        padding: 0;
+        display: flex;
+    }
+
+    &__item-link {
+        list-style-type: none;
+    }
+
+    &__link {
+        &.active {
+            color: red;
+        }
+    }
+
+    &__item {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}

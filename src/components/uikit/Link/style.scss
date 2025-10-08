@@ -1,0 +1,26 @@
+@import '../../../assets/styles/global.scss';
+.link {
+    display: inline;
+    text-decoration: none;
+    transition: color $animation-time;
+    appearance:         none;
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+
+    // Общие
+    &--block {
+        display: block;
+    }
+
+    @media (hover: none), (pointer: coarse) {
+        &:active {
+            color: green;
+        }
+    }
+
+    @media not all and (pointer: coarse) {
+        &:hover {
+            color: red;
+        }
+    }
+}

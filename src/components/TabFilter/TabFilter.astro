@@ -1,0 +1,58 @@
+---
+import './style.scss';
+
+export interface Props {
+	tab: any;
+    cards: any;
+}
+
+const { tab, cards, class: className } = Astro.props;
+
+---
+<div class:list={["tab-filter js-tab-filter-wrap", `${className}`]}>
+    <div class="tab-filter__nav">
+        <ul class="tab-filter__head js-tab-filters">
+            {
+                tab.map((item, i) => {
+                    if (i === 0) {
+                        return (
+                            <li class="tab-filter__item-link">
+                                <button data-tab-filter-target={item.id} class="active button button--small button--tab-filter">{item.title}</button>
+                            </li>
+                        )
+                    } else {
+                        return (
+                            <li class="tab-filter__item-link">
+                                <button data-tab-filter-target={item.id} class="button button--small button--tab-filter">{item.title}</button>
+                            </li>
+                        )
+                    }
+                })
+            }
+        </ul>
+    </div>
+    <div class="tab-filter__content js-tab-filter-content">
+        {
+            cards.map((card) => {
+                return (
+                    <a class="card-filter" data-tab-filter-content={card.id} href="javascript:void(0);" title="">
+                        <div class="card-filter__picture-wrap">
+                            <picture class="card-filter__picture">
+                            <img src="" alt=""></img>
+                        </picture>
+                        </div>
+                        <span class="card-filter__title">}</span>
+                        <div class="card-filter__information">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span class="card-filter__description"></span>
+                    </a>
+                )
+            })
+        }
+    </div>
+</div>
+
+<script src="./script.js"></script>

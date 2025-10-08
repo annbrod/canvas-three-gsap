@@ -1,0 +1,25 @@
+---
+import './style.scss'
+
+
+interface Props {
+    Tag?: "h1" | "h2" | "h3" | "h4";
+    class?: string;
+}
+
+const {
+    Tag = "h1",
+    class: className,
+    ...rest
+} = Astro.props;
+---
+
+<Tag
+    {...rest}
+    class:list={[
+        "title",
+        className,
+    ]}>
+
+    <slot />
+</Tag>

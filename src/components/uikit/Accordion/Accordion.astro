@@ -1,0 +1,31 @@
+---
+import './style.scss';
+
+import Icon from '../Icon/Icon.astro'
+
+export interface Props {
+	accordion: any;
+}
+
+const { accordion, class: className } = Astro.props;
+
+---
+
+<div class:list={["accordion", `${className}` ]}>
+    <ul class="accordion__list">
+        {
+            accordion.map((item) => (
+                <li class="accordion__item">
+                    <button class="accordion__toggle js-accordion-toggle"> {item.title}
+                        <Icon name="glass" mod="glass accordion__icon"></Icon>
+                    </button>
+                    <div class="accordion__content js-accordion-content">
+                        {item.text}
+                    </div>
+                </li>
+            ))
+        }
+    </ul>
+</div>
+
+<script src="./script.js"></script>

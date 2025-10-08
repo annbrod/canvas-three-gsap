@@ -1,0 +1,36 @@
+---
+import './style.scss';
+
+export interface Props {
+	tab: any;
+}
+
+const { tab, class: className } = Astro.props;
+
+---
+<div class:list={["tab js-tab-wrap", `${className}`]}>
+    <ul class="tab__head js-tabs">
+        {
+            tab.map((item, i, row) => {
+                if (i + 1 === row.length) {
+                    return (
+                        <li class="tab__item-link">
+                            <button data-tab-target={item.id} class="active tab__link">{item.title}</button>
+                        </li>
+                    )
+                } else {
+                    return (
+                        <li class="tab__item-link">
+                            <button data-tab-target={item.id} class="tab__link">{item.title}</button>
+                        </li>
+                    )
+                }
+            })
+        }
+    </ul>
+    <div class="tab__content js-tab-content">
+        <slot />
+    </div>
+</div>
+
+<script src="./script.js"></script>

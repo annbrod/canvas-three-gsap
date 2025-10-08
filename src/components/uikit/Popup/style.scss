@@ -1,0 +1,77 @@
+@import '../../../assets/styles/global.scss';
+
+.popup {
+    position: fixed;
+    display: flex;
+    // display: none;
+    inset: 0;
+    width: auto;
+    height: auto;
+    padding: 0;
+    z-index: 100;
+    transform: translateY(100%);
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;
+    overflow: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0s linear 0.3s;
+    pointer-events: none;
+
+    &.open {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.3s ease, transform 0s linear 0s;
+        pointer-events: auto;
+    }
+
+    &__content {
+        position: relative;
+        background-color: $cl-white;
+        margin: auto;
+        padding: 50px 20px 20px;
+        width: 100vw;
+        max-width: 560px;
+    }
+
+    &__close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        transition: opacity 0.3s ease;
+        cursor: pointer;
+
+        &:hover,
+        &:active {
+            opacity: 0.5;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 20px;
+            height: 2px;
+            background-color: $cl-black;
+        }
+
+        &::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+}
+
+@media (min-width: #{$tablet}) {
+    .popup {
+        &__content {
+            padding: 30px;
+        }
+    }
+}

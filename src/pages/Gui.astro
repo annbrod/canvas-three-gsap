@@ -1,0 +1,331 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/uikit/Breadcrumbs/Breadcrumbs.astro';
+import Link from '../components/uikit/Link/Link.astro';
+import TagButton from '../components/uikit/Button/Button.astro';
+import Popup from '../components/uikit/Popup/Popup.astro';
+import Icon from '../components/uikit/Icon/Icon.astro'
+import Title from '../components/uikit/Title/Title.astro';
+import Feedback from '../components/Feedback/Feedback.astro'
+import Checkbox from '../components/uikit/Checkbox/Checkbox.astro';
+import Radio from '../components/uikit/Radio/Radio.astro';
+import Select from '../components/uikit/Select/Select.astro';
+import Tab from '../components/uikit/Tab/Tab.astro';
+import Accordion from '../components/uikit/Accordion/Accordion.astro';
+
+const pageTitle = "Gui";
+const links = [
+    { href: '/', title: 'Home' },
+    { href: '/about', title: 'About' },
+    { title: 'Gui' },
+];
+
+const selectFirst = [
+    {
+        title: '1Lorem'
+    },
+    {
+        title: '1Ipsum'
+    },
+    {
+        title: '1Old'
+    }
+];
+
+const selectSecond = [
+    {
+        title: '2Lorem'
+    },
+    {
+        title: '2Ipsum'
+    },
+    {
+        title: '2Old'
+    }
+];
+
+const tab = [
+    {
+        id: 'home',
+        title: '2Lorem'
+    },
+    {
+        id: 'pricing',
+        title: '2Ipsum'
+    },
+    {
+        id: 'about',
+        title: '2Old'
+    },
+    {
+        id: 'news',
+        title: '2Old'
+    }
+];
+
+const accordion = [
+    {
+        title: '2Lorem',
+        text: 'home2'
+    },
+    {
+        title: '2Ipsum',
+        text: 'pricing'
+    },
+    {
+        title: '2Old',
+        text: 'about'
+    },
+    {
+        title: '2Old',
+        text: 'news'
+    }
+];
+---
+
+<BaseLayout title={pageTitle} pageTitle={pageTitle}>
+    <div class="container">
+        <h1>GUI</h1>
+        
+        <br>
+        <h2>Хлебные крошки</h2>
+        <br>
+        <div class="row">
+            <div class="col col-xs">
+                <Breadcrumbs links={links}/>
+            </div>
+            <!--div class="col col-xs">
+            </div-->
+        </div>
+        <hr/>
+        <br>
+        <h2>Заголовки</h2>
+        <br>
+        <!-- <Title Tag="h3" className='title title--h3'>
+            <Fragment set:html="Заголовок H3"/>
+        </Title> -->
+
+        <Title Tag="h1" className='title title--h1'>
+            Заголовок H1
+        </Title>
+
+        <Title Tag="h2" className='title title--h2'>
+            Заголовок H2
+        </Title>
+
+        <Title Tag="h3" className='title title--h3'>
+            Заголовок H3
+        </Title>
+
+        <hr/>
+        <br>
+        <h2>Кнопки</h2>
+        <br>
+
+        <TagButton
+            TagButton = "a"
+            href="javascript:void(0);"
+            class="button--large"
+            rel="noopener">
+            Кнопка ссылка
+        </TagButton>
+
+        <TagButton
+            TagButton = "button"
+            class="flex gap-1 items-center justify-center"
+            rel="noopener">
+            Кнопка
+        </TagButton>
+
+        <TagButton
+            TagButton = "button"
+            class="button--small"
+            rel="noopener" disabled>
+            Кнопка
+        </TagButton>
+
+    </br>
+
+        <TagButton
+            TagButton = "a"
+            href="javascript:void(0);"
+            class="button--reversed button--large"
+            rel="noopener">
+            Кнопка ссылка
+            <Icon name="arrow" mod="arrow"></Icon>
+        </TagButton>
+
+        <TagButton
+            TagButton = "button"
+            class="button--reversed"
+            rel="noopener">
+            Кнопка
+            <Icon name="arrow" mod="arrow"></Icon>
+        </TagButton>
+
+        <TagButton
+            TagButton = "button"
+            class="button--reversed button--small"
+            rel="noopener" disabled>
+            Кнопка
+            <Icon name="arrow" mod="arrow"></Icon>
+        </TagButton>
+    <br>
+    <TagButton
+        TagButton = "button"
+        class="button--alternative"
+        rel="noopener">
+        Кнопка
+    </TagButton>
+    <TagButton
+        TagButton = "button"
+        class="button--alternative button--outline"
+        rel="noopener">
+        Кнопка
+    </TagButton>
+    <div style="background:#000000; padding:10px">
+        <TagButton
+            TagButton = "button"
+            class="button--light"
+            rel="noopener">
+            Кнопка
+        </TagButton>
+        <TagButton
+            TagButton = "button"
+            class="button--light button--outline"
+            rel="noopener">
+            Кнопка
+        </TagButton>
+    </div>
+    <TagButton
+        TagButton = "button"
+        class="button--dark"
+        rel="noopener">
+        Кнопка
+    </TagButton>
+    <TagButton
+        TagButton = "button"
+        class="button--dark button--outline"
+        rel="noopener">
+        Кнопка
+    </TagButton>
+
+        <hr/>
+        <br>
+        <h2>Ссылки</h2>
+        <br>
+
+        <Link
+            href="javascript:void(0);"
+            class="flex gap-1 items-center justify-center"
+            rel="noopener">
+            Ссылка
+        </Link>
+
+        <hr/>
+        <br>
+        <h2>Попап</h2>
+        <br>
+
+        <TagButton data-popup="testpopup" class="js-open-popup">Попап</TagButton>
+
+        <hr/>
+        <br>
+        <h2>Иконки</h2>
+        <br>
+
+        <Icon name="glass" mod="glass"></Icon>
+
+        <Icon name="burger" mod="burger"></Icon>
+
+        <Icon name="arrow" mod="arrow"></Icon>
+
+        <hr/>
+        <br>
+        <h2>Форма, инпуты, textarea</h2>
+        <br>
+        <Feedback />
+        <hr/>
+        <br>
+        <h2>Checkbox</h2>
+        <br>
+
+        <Checkbox id="check1" name="name" count="" text="1" checked="checked" class=""></Checkbox>
+
+        <Checkbox id="check2" name="name2" count="" text="2" disabled="disabled" class="select--modification"></Checkbox>
+
+        <hr/>
+        <br>
+        <h2>Radio</h2>
+        <br>
+
+        <Radio id="radio1" name="radio" count="" text="1" checked="checked" class="" required="required"></Radio>
+
+        <Radio id="radio2" name="radio" count="" text="2" disabled="disabled" class="radio--modification"></Radio>
+
+        <hr/>
+        <br>
+        <h2>Select</h2>
+        <br>
+
+        <Select	select={ selectFirst }	placeholder="Тестовый текст" class="select--modification" required="required"/>
+
+        <Select	select={ selectSecond }	placeholder="Тестовый текст" class=""/>
+        <hr/>
+        <br>
+        <h2>Tab</h2>
+        <br>
+        <Tab tab={ tab } class="">
+            <div id="home2" data-tab-content class="tab__item active">
+                <h1>Home</h1>
+                <p>This is the home</p>
+                </div>
+            <div id="pricing2" data-tab-content class="tab__item">
+                <h1>Pricing</h1>
+                <p>Some information on pricing</p>
+            </div>
+            <div id="about2" data-tab-content class="tab__item">
+                <h1>About</h1>
+                <p>Let me tell you about me</p>
+            </div>
+            <div id="news2" data-tab-content class="tab__item">
+                <h1>News</h1>
+                <p>News is great.</p>
+            </div>
+        </Tab>
+        <hr/>
+        <br>
+        <h2>Accordion</h2>
+        <br>
+        <Accordion accordion={ accordion } class=""></Accordion>
+        <hr/>
+        <br>
+    </div> 
+</BaseLayout>
+<Popup data="testpopup" labelledby="testpopup">
+    <h2>Заголовок попапа</h2>
+</Popup>
+
+<style>
+    .container {
+        padding: 0 20px;
+    }
+
+    .row {
+        /* display: flex; */
+        gap: 10px;
+    }
+    .col-xs {
+        width: 100%;
+        
+    }
+
+    @media (min-width: 768px) {
+        .row {
+            display: flex;
+        }
+        .col {
+            width: 50%;
+        }
+    }
+</style>

@@ -1,0 +1,28 @@
+---
+import './style.scss';
+import TagButton from '../uikit/Button/Button.astro';
+
+---
+<div class="screen screen--dark screen--third">
+    <canvas id="drawing" >Ваш браузер не поддерживает содержимое, ха-ха</canvas>
+    <canvas id="drawing-welcome" class="drawing-welcome" >Ваш браузер не поддерживает содержимое, ха-ха</canvas>
+    <canvas id="cursor" class="cursor"></canvas>
+    <div class="screen__buttons">
+        <TagButton
+            TagButton = "button"
+            class="button"
+            id="draw-toggle"
+            rel="noopener">
+            Ластик
+        </TagButton>
+        <TagButton
+            TagButton = "button"
+            class="button--light button--outline"
+            id="clear-button"
+            rel="noopener">
+            Очистить('C')
+        </TagButton>
+    </div>
+</div>
+
+<script src="./script.js"></script>

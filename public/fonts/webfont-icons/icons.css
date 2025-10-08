@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url("icons.woff?2fac06ae6e6ad2ece01a5518176ced28") format("woff"),
+url("icons.woff2?2fac06ae6e6ad2ece01a5518176ced28") format("woff2");
+}
+
+.icon, .icon-icons {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.icon-icons {
+  width: 1em;
+  height: 1em;
+  position: relative;
+  fill: currentColor;
+}
+
+.icon {
+  font-family: 'icons';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.icon-arrow:before { content: "\f101"; }
+.icon-burger:before { content: "\f102"; }
+.icon-glass:before { content: "\f103"; }
+.icon-star:before { content: "\f104"; }

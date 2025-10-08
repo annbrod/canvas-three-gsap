@@ -1,0 +1,45 @@
+@import '../../../assets/styles/global.scss';
+
+.accordion {
+
+    &__list {
+        width: 100%;
+        padding: 0;
+    }
+
+    &__item {
+        list-style-type: none;
+        background-color: #ffffff;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0 15px 25px rgba(0, 0, 50, 0.2);
+        box-shadow: 0 15px 25px rgba(0, 0, 50, 0.2);
+    }
+
+    &__toggle {
+        width: 100%;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px 0;
+    }
+
+    &__content {
+        position: relative;
+        font-size: 14px;
+        text-align: justify;
+        line-height: 30px;
+        height: 0;
+        overflow: hidden;
+        -webkit-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
+    }
+}

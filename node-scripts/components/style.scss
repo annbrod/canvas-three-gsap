@@ -1,0 +1,11 @@
+@import '../../../assets/styles/global.scss';
+
+.test {
+    @media (min-width: #{$tablet}) {}
+
+    @media (min-width: #{$desktop}) {}
+
+    @media (min-width: #{$laptop}) {}
+
+    @media (min-width: #{$desktop-xl}) {}
+}

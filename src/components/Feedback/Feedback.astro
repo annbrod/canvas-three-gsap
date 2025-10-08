@@ -1,0 +1,74 @@
+---
+import './style.scss'
+
+import Input from '@components/uikit/Input/Input.astro';
+import TagButton from '../uikit/Button/Button.astro';
+import Textarea from '@components/uikit/Textarea/Textarea.astro';
+import Select from '@components/uikit/Select/Select.astro';
+
+interface Props {
+    classMod: string;
+}
+
+const { classMod } = Astro.props
+
+
+const selectFirst = [
+    {
+        title: '2Lorem'
+    },
+    {
+        title: '2Ipsum'
+    },
+    {
+        title: '2Old'
+    }
+];
+---
+
+<form class=`feedback ${classMod ? 'feedback--' + classMod : ''} js-form` autocomplete="off" novalidate="novalidate">
+    <Input
+        id={`name${classMod ? '-' + classMod : ''}`}
+        name="name"
+        type="text"
+        placeholder="Имя и Фамилия"
+        required
+        jsClass="js-form-name"
+    />
+    <Input
+        id={`company${classMod ? '-' + classMod : ''}`}
+        name="company"
+        type="text"
+        placeholder="Компания"
+        required
+    />
+    <Input
+        id={`phone${classMod ? '-' + classMod : ''}`}
+        name="phone"
+        type="tel"
+        placeholder="+7 (999) 999-99-99"
+        required
+        jsClass="js-form-phone"
+    />
+    <Input
+        id={`mail${classMod ? '-' + classMod : ''}`}
+        name="mail"
+        type="email"
+        placeholder="Рабочий e-mail"
+        required
+        jsClass="js-form-mail"
+        disabled
+    />
+    <Textarea
+        id={`description${classMod ? '-' + classMod : ''}`}
+        name="description"
+        placeholder="Коротко расскажите о проекте"
+        required
+        jsClass="js-form-description"
+    />
+    <Select	select={ selectFirst }	placeholder="Тестовый текст" class="" jsClass="js-form-select" required="required"/>
+    <TagButton class="feedback__btn">Обсудить проект</TagButton>
+</form>
+
+<script src="./script.js"></script>
+

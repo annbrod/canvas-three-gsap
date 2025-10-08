@@ -1,0 +1,39 @@
+@import '../../../assets/styles/global.scss';
+
+.select {
+    position: relative;
+    margin-bottom: 10px;
+
+    .choices {
+
+        &__inner {
+            border: 1px solid $cl-black;
+        }
+        &__list {
+            &--dropdown {
+                width: 100%;
+                visibility: hidden;
+                pointer-events: none;
+                position: absolute;
+                top:0;
+                left:0;
+                z-index: 2;
+                background-color: $cl-white;
+
+                &.is-active {
+                    visibility: visible;
+                    pointer-events: auto;
+                }
+            }
+        }
+
+        /* clears the ‘X’ from Internet Explorer */
+        input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+        input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+        /* clears the ‘X’ from Chrome */
+        input[type="search"]::-webkit-search-decoration,
+        input[type="search"]::-webkit-search-cancel-button,
+        input[type="search"]::-webkit-search-results-button,
+        input[type="search"]::-webkit-search-results-decoration { display: none; }
+    }
+}

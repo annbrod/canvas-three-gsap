@@ -1,0 +1,47 @@
+---
+import './style.scss';
+
+// const links = [
+//   { href: '/', title: 'Home' },
+//   { href: '/about', title: 'About' },
+//   { href: '/products', title: 'Products' },
+// ]
+
+export interface Props {
+	links: any;
+}
+
+const { links } = Astro.props;
+---
+<!-- START хлебные крошки -->
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ul class="breadcrumbs__list">
+        {
+            links.map((link, i, row) => {
+                // <li class="breadcrumbs__item">
+                //     <a href={link.href} class="breadcrumbs__link" title={link.title} aria-current={link.title}>
+                //         {link.title}
+                //     </a>
+                // </li>
+                if (i + 1 === row.length) {
+                    return (
+                        <li class="breadcrumbs__item breadcrumbs__item--last">
+                            <span class="breadcrumbs__link" aria-current={link.title}>
+                                {link.title}
+                            </span>
+                        </li>
+                    )
+                } else {
+                    return (
+                        <li class="breadcrumbs__item">
+                            <a href={link.href} class="breadcrumbs__link" title={link.title} aria-current={link.title}>
+                                {link.title}
+                            </a>
+                        </li>
+                    )
+                }
+            })
+        }
+    </ul>
+</nav>
+<!-- STOP хлебные крошки -->

@@ -1,0 +1,17 @@
+---
+import './style.scss';
+
+const { select,placeholder,class: className, required, jsClass } = Astro.props;
+---
+<div class:list={["select", `${className}` ]}>
+    <select class:list={["select__hidden js-select", `${jsClass}`]} required={required}>
+        <option value={ placeholder }>{ placeholder }</option>
+        {
+            select.map((item) => (
+                <option value={item.title}> {item.title}</option>
+            ))
+        }
+    </select>
+</div>
+
+<script src="./script.js"></script>

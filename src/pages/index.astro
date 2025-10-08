@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Welcome from '../components/Welcome/Welcome.astro';
+import Second from '../components/Second/Second.astro';
+import Drawing from '../components/Drawing/Drawing.astro';
+---
+
+<BaseLayout fullHeight="true">
+    <div class="wrapper">
+        <Welcome></Welcome>
+        <Second></Second>
+        <Drawing><Drawing/>
+    </div>
+</BaseLayout>

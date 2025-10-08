@@ -1,0 +1,93 @@
+@import './global.scss';
+
+.screen {
+    z-index: 5;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 1.3s .9s ease-in, opacity 1.3s .9s ease-in;
+
+    &.gone{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    &--second {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 4;
+        
+        transition: transform 1.3s .3s ease-in, opacity 1.3s .3s ease-in;
+    
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: -moz-linear-gradient(0deg,  #191b1e 50%, #282f39 100%);
+            background: -webkit-gradient(linear, left top, right bottom, color-stop(50%,#191b1e), color-stop(100%,#282f39));
+            background: -webkit-linear-gradient(0deg,  #191b1e 50%,#282f39 100%);
+            background: -o-linear-gradient(0deg,  #191b1e 50%,#282f39 100%);
+            background: linear-gradient(0deg,  #191b1e 50%,#282f39 100%);
+            transition: opacity .9s 2s ease;
+        }
+    
+    
+        &.shown {
+            &::after {
+                opacity: 0;
+            }
+        }
+    
+        &.gone{
+            transform: translateY(-100%);
+            opacity: 1;
+        }
+    }
+
+    &--dark {
+        background: -moz-linear-gradient(0deg,  #191b1e 50%, #282f39 100%);
+        background: -webkit-gradient(linear, left top, right bottom, color-stop(50%,#191b1e), color-stop(100%,#282f39));
+        background: -webkit-linear-gradient(0deg,  #191b1e 50%,#282f39 100%);
+        background: -o-linear-gradient(0deg,  #191b1e 50%,#282f39 100%);
+        background: linear-gradient(0deg,  #191b1e 50%,#282f39 100%);
+        background-attachment: fixed;
+    
+    }
+
+    &--third {
+        z-index: 0;
+        transform: translateY(100%);
+        transition: transform 1.3s .3s ease-in;
+
+        &.shown{
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        cursor: none;
+
+        .button {
+            cursor: none;
+        }
+
+    }
+
+    &__buttons {
+        position: absolute;
+        left: 20px;
+        bottom: 30px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+}

@@ -1,0 +1,183 @@
+@use "sass:math";
+// Fonts
+$font-base: 'Montserrat-Regular';
+$font-base-light: 'Montserrat-Light';
+$font-base-medium: 'Montserrat-Medium';
+$font-base-bold: 'Montserrat-Bold';
+
+// Animation
+$animation-time: 0.3s;
+$double-animation: 0.6s;
+
+// Settings
+$desktop-xl: 1920px;
+$laptop: 1440px;
+$desktop: 1366px;
+$desktop-min: 1024px;
+$tablet: 768px;
+$mobile: 360px;
+$desktop-vh: 660px;
+
+// vmin - для мобильных устройств
+@mixin vmin($property, $value, $mobile) {
+    #{$property}: math.div($value, $mobile) * 100vmin;//calc($value / ($base * 100vmin));
+}
+
+// адаптивные стили через vw
+@mixin vw($property, $value, $base) {
+    #{$property}: math.div($value, $base) * 100vw;
+}
+
+// пиксельные стили для 1920+
+@mixin fullhd($property, $value){
+    #{$property}: calc($value * ($desktop-xl) / $laptop);
+}
+
+// обычные пиксельные стили
+@mixin px($property, $value, $base) {
+    #{$property}: calc($value * ($base) / $base);
+}
+
+// vh - для адаптации стилей под высоту страницы
+@mixin vh($property, $value, $desktop-vh) {
+    #{$property}: calc($value / $desktop-vh * 100vh);
+}
+
+@function strip-unit($value) {
+    @return math.div($value, ($value * 0 + 1));
+    }
+    @mixin fluid($property, $min-vw, $max-vw, $min-value, $max-value) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-value);
+    $u4: unit($max-value);
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+        & {
+        #{$property}: $min-value;
+        @media screen and (min-width: $min-vw) {
+            #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+        }
+        @media screen and (min-width: $max-vw) {
+            #{$property}: $max-value;
+        }
+        }
+    }
+}
+
+// Примеры использования миксинов
+// @include vmin(font-size, 150px, 660px);
+// @include vh(font-size, 150px, 660px);
+// @include px(font-size, 150px, 1440);
+// @include vw(font-size, 150px, 1440px);
+// @include fullhd(font-size, 150px);
+// @include fluid(font-size, 1920px, 2560px, 120px, 410px);
+
+// MediaQ - теперо подключаются в layout
+// $desktop: ~"(max-width: 1439px)";
+// $desktop-min: ~"(max-width: 1169px)";
+// $tablet: ~"(max-width: 1023px)";
+// $mobile: ~"(max-width: 767px)";
+
+// // Alpha colors
+// // $cl-alpha: rgba(255, 255, 255, .2); // цвет + описание
+
+
+:root {
+    --cl-transparent: transparent;
+    --cl-white: #ffffff;
+    --cl-black: #000000;
+    --cl-gray: #dddddd;
+    --cl-pure-or-mostly-pure-red: #ff0000;
+    --cl-very-dark-gray-mostly-black: #212121;
+}
+
+body {
+    font-family: $font-base;
+}
+
+// Основные цвета
+$cl-transparent: transparent;
+$cl-white: #ffffff;
+$cl-black: #000000;
+$cl-gray: #dddddd;
+$cl-pure-or-mostly-pure-red: #ff0000;
+$cl-very-dark-gray-mostly-black: #212121;
+// Генерируемые цвета - ниже не пишем ничего сами )
+$cl-grey: #787A80;
+$cl-dark-gunmetal: #1E212C;
+$cl-portland-orange: #FF5A30;
+$cl-electric-orange: #FC3300;
+$cl-cultured: #F6F5F4;
+$cl-bright-gray: #E5E8ED;
+$cl-outer-space: #514E42;
+$cl-gainsboro: #D7DADD;
+$cl-manatee: #9A9CA5;
+
+// Цвета текста
+$cl-font-main: var(--cl-black);
+$cl-font-light: var(--cl-gray);
+// Colors
+// Цвета theme. Не трогать!!!
+$cl-theme-global: var(--cl-font-main);
+$cl-theme-link: var(--cl-font-main);
+$cl-theme-link-hover: var(--cl-font-light);
+$cl-theme-grey: var(--cl-gray);
+
+// Цвета текста
+$cl-font-main: var(--cl-black);
+$cl-font-light: var(--cl-gray);
+
+/* Добавлять по категориям cl-элемент
+/* $cl-button-bg: $Var */
+
+// Общий док
+$background: var(--cl-white);
+
+// разделитель между секция
+$hr-main: var(--cl-gray);
+
+// элементы формы (input, textarea, select, etc)
+$form-back: var(--cl-white);
+$form-border: var(--cl-gray);
+
+// Checkbox
+$checkbox-back: var(--cl-gray);
+$checkbox-back-hover: var(--cl-gray);
+$checkbox-back-checked: var(--cl-font-main);
+$check-mark: var(--cl-white);
+
+// Radiobutton
+$radio-back: var(--cl-white);
+
+// кнопки с бэком без бордера
+$button-main-back: var(--cl-black);
+$button-main-hover: var(--cl-gray);
+$button-main-active: var(--cl-gray);
+
+// кнопки прозрачные
+$button-transparent-back: var(--cl-transparent);
+$button-transparent-hover: var(--cl-gray);
+$button-transparent-active: var(--cl-gray);
+
+
+/* Light mode */
+// @media (prefers-color-scheme: light) {
+//     body {
+//         background-color: var(--cl-white);
+//         color: var(--cl-black);
+//     }
+// }
+
+/* Dark mode */
+// @media (prefers-color-scheme: dark) {
+//     body {
+//         background-color: var(--cl-black);
+//         color: var(--cl-white);
+//     }
+// }
+
+.container {
+    padding: 0 20px;
+    max-width: 1120px;
+    margin: 0 auto;
+}

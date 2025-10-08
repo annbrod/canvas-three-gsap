@@ -1,0 +1,51 @@
+@import '../../assets/styles/global.scss';
+
+.feedback {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__btn {
+        background-color: $cl-black;
+        border: none;
+        outline: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $cl-white;
+        font-size: 18px;
+        line-height: 27px;
+        font-family: 'Montserrat-Medium';
+        font-weight: 500;
+        padding: 19px 24px;
+        cursor: pointer;
+        transition: opacity $animation-time ease;
+        opacity: 1;
+
+        &:hover,
+        &:active {
+            opacity: 0.7;
+        }
+    }
+}
+
+@media (min-width: #{$desktop-min}) {
+    .feedback {
+        align-self: flex-end;
+        width: calc(50% - 16px);
+
+        &--popup {
+            width: 100%;
+        }
+    }
+}
+
+@media (min-width: #{$desktop}) {
+    .feedback {
+        width: calc(50% - 25px);
+
+        &--popup {
+            width: 100%;
+        }
+    }
+}

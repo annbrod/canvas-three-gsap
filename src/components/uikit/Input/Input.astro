@@ -1,0 +1,11 @@
+---
+import './style.scss'
+
+const { className, id, name, placeholder, required, type, value, jsClass, disabled } = Astro.props;
+---
+
+<div class:list={["input", className]}>
+    <input class:list={["input__input-field", jsClass]} id={id} name={name} placeholder={placeholder} required={required} type={type} value={value} disabled={disabled}>
+</div>
+
+<script src="./script.js"></script>

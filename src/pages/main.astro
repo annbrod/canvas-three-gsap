@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TabFilter from '../components/TabFilter/TabFilter.astro';
+import Title from '../components/uikit/Title/Title.astro';
+
+const pageTitle = "Home Page";
+const tab = [
+    {
+        id: 'all',
+        title: 'all'
+    },
+    {
+        id: 'smartphones',
+        title: 'smartphones'
+    },
+    {
+        id: 'laptops',
+        title: 'laptops'
+    },
+    {
+        id: 'fragrances',
+        title: 'fragrances'
+    },
+    {
+        id: 'skincare',
+        title: 'skincare'
+    },
+    {
+        id: 'groceries',
+        title: 'groceries'
+    },
+    {
+        id: 'home-decoration',
+        title: 'home-decoration'
+    }
+];
+
+const cards = [
+    {
+        id: 'home',
+        title: 'title1'
+    },
+    {
+        id: 'pricing',
+        title: 'title2'
+    },
+    {
+        id: 'about',
+        title: 'title3'
+    },
+    {
+        id: 'news',
+        title: 'title4'
+    },
+    {
+        id: 'home',
+        title: 'title1'
+    },
+    {
+        id: 'pricing',
+        title: 'title2'
+    },
+    {
+        id: 'about',
+        title: 'title3'
+    },
+    {
+        id: 'news',
+        title: 'title4'
+    }
+];
+---
+<BaseLayout title={pageTitle} pageTitle={pageTitle}>
+   <div class="container">
+    <Title Tag="h1" className='title title--h2 title--center'>
+        Products
+    </Title>
+    <TabFilter tab={ tab } cards={ cards } class="">
+    </Tab>
+   </div>
+</BaseLayout>

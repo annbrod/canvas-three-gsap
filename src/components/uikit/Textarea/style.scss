@@ -1,0 +1,89 @@
+@import '../../../assets/styles/global.scss';
+
+.textarea {
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+
+    &__textarea-field {
+        height: 102px;
+        background-color: $cl-white;
+        padding: 16px 35px;
+        border: 1px solid $cl-black;
+        transition: border-color $animation-time ease,
+                    background-color $animation-time ease,
+                    box-shadow $animation-time ease;
+        font-size: 16px;
+        line-height: 24px;
+        color: $cl-very-dark-gray-mostly-black;
+        resize: none;
+
+        -webkit-appearance: none;
+        -moz-appearance:    none;
+        appearance:         none;
+
+        &:hover {
+            box-shadow: 0px 4px 22px rgba(21, 62, 88, 0.09);
+        }
+
+        &:focus,
+        &:focus-visible {
+            outline: none;
+            border-color: $cl-black;
+
+            &:hover {
+                box-shadow: none;
+            }
+        }
+
+        &:disabled,
+        &[disabled],
+        &.disabled {
+            pointer-events: none;
+            background-color: $cl-black;
+            color: $cl-black;
+            border-color: $cl-black;
+
+            &::-webkit-input-placeholder {
+                color: $cl-black;
+            }
+
+            &:-moz-placeholder {
+                color: $cl-black;
+            }
+
+            &::-moz-placeholder {
+                color: $cl-black;
+            }
+
+            &:-ms-input-placeholder {
+                color: $cl-black;
+            }
+        }
+
+        &[placeholder] {
+            text-overflow:ellipsis;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $cl-black;
+            opacity: 1;
+            text-overflow:ellipsis;
+        }
+        &:-moz-placeholder {
+            color: $cl-black;
+            opacity: 1;
+            text-overflow:ellipsis;
+        }
+        &::-moz-placeholder {
+            color: $cl-black;
+            opacity: 1;
+            text-overflow:ellipsis;
+        }
+        &:-ms-input-placeholder {
+            color: $cl-black;
+            opacity: 1;
+            text-overflow:ellipsis;
+        }
+    }
+}
